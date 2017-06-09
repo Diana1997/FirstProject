@@ -28,3 +28,20 @@ select * from ProjectLocation
 Delete from ProjectLocation where ProjectLocationID = 9 
 select * from ProjectDonor
 Delete from ProjectDonor where ProjectDonorID = 6
+
+
+select ProjectID  as procejtLocation From ProjectLocation
+union  --all
+select ProjectID as projectDOnor from ProjectDonor
+
+
+
+select p.ProjectName, c.CurrencyName, Donors.OrganisationName as DonorName
+From Project  as p
+Inner join C_Currency as c ON p.CurrencyID = c.CurrencyID
+INner join (
+	Select Project.ProjectName, C_Organisation.OrganisationName  From Project inner join ProjectDonor on Project.ProjectID = ProjectDonor.ProjectDonorID
+	inner join C_Organisation on C_Organisation.OrganisationID = ProjectDonor.DonorID  ) as Donors on p.ProjectName = Donors.ProjectName
+
+Select * From Project, C_Currency
+select * from C_Currency

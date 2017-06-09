@@ -1,8 +1,6 @@
 package inheritance;
 
-/**
- * Created by Harut on 30.05.2017.
- */
+
 public class Point3D  extends Point2D{
 
     final double z;
@@ -29,5 +27,14 @@ public class Point3D  extends Point2D{
     @Override
     public double modul(){
         return  Math.sqrt(getX() * getX() + getY() * getY() + getZ() * getZ());
+    }
+
+    public Point2D move(double dx, double dy, double dz){
+        return  new Point3D(getX() + dx, getY() + dy, getZ() + dz);
+    }
+
+    @Override
+    public double distance(Point3D p){
+        return Math.sqrt( Math.pow((p.getX()- getX()), 2)+ Math.pow((p.getY()-getY()), 2) + Math.pow((p.getZ()- getZ()), 2));
     }
 }
