@@ -1,6 +1,7 @@
 package InterfacePraktika;
 
 import javax.sound.midi.Soundbank;
+import java.util.function.DoubleToIntFunction;
 import java.util.function.IntConsumer;
 import java.util.function.IntPredicate;
 import java.util.function.IntSupplier;
@@ -8,7 +9,7 @@ import java.util.function.IntSupplier;
 /**
  * Created by Harut on 20.06.2017.
  */
-public class Peros implements IntSupplier, IntConsumer, IntPredicate{
+public class Peros implements IntSupplier, IntConsumer, IntPredicate, DoubleToIntFunction{
     private int salary;
 
     public int getSalary() {
@@ -44,6 +45,11 @@ public class Peros implements IntSupplier, IntConsumer, IntPredicate{
             return true;
         }
         return false;
+    }
+
+    @Override
+    public int applyAsInt(double value) {
+      return    (int) (getSalary() * 0.21);
     }
 
    /* public static void main(String[] args) {

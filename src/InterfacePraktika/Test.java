@@ -1,6 +1,7 @@
 package InterfacePraktika;
 
 import java.util.Arrays;
+import java.util.function.DoubleToIntFunction;
 import java.util.function.IntConsumer;
 import java.util.function.IntPredicate;
 import java.util.function.IntSupplier;
@@ -44,6 +45,15 @@ public class Test {
         return true;
 
     }
+
+    public static int[] getApplyResault(DoubleToIntFunction[] arr, double value){
+        int[] newArray = new int[arr.length];
+        for(int i=0; i<arr.length; ++i){
+            newArray[i] = arr[i].applyAsInt(value);
+        }
+        return newArray;
+    }
+
     public static void main(String[] args) {
         Peros[] arr = {
                 new Peros(12),
@@ -55,5 +65,6 @@ public class Test {
         System.out.println(Test.isRepeat(arr));
         Test.acceptAll(arr, 2);
         System.out.println(Arrays.toString(arr));
+
     }
 }
