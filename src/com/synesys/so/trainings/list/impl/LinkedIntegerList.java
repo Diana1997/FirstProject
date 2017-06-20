@@ -154,7 +154,6 @@ public class LinkedIntegerList extends com.synesys.so.trainings.list.api.Integer
         int k =    currentNode.getValue();
         currentNode.setNext(currentNode.getNext().getNext());
 
-
         return k;
     }
 
